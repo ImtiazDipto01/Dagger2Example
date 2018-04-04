@@ -7,7 +7,7 @@ import dagger.Component;
 /**
  * Created by Dipto on 3/29/2018.
  */
-@Component(modules = {GithubServiceModule.class, NetworkModule.class, ContextModule.class})
+@Component(modules = {GithubServiceModule.class, PicassoModule.class})
 public interface GithubApplicationComponent {
 
     Picasso getPiacasso();

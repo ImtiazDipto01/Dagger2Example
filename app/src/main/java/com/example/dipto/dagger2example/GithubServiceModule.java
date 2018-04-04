@@ -1,6 +1,7 @@
 package com.example.dipto.dagger2example;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import dagger.Module;
 import dagger.Provides;
@@ -11,12 +12,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by Dipto on 3/29/2018.
  */
-@Module
+@Module(includes = NetworkModule.class)
 public class GithubServiceModule {
 
     @Provides
     public GithubService githubservice(Retrofit githubRetrofit){
         return githubRetrofit.create(GithubService.class);
+    }
+
+    @Provides
+    public Gson gson(){
+        return new GsonBuilder().setLenient().create();
     }
 
     @Provides
