@@ -24,8 +24,12 @@ public class GithubApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        /*//GithubApplicationComponent component = DaggerGithubApplicationComponent.builder()
-                .*/
+        GithubApplicationComponent component = DaggerGithubApplicationComponent.builder()
+                .contextModule(new ContextModule(this))
+                .build();
+
+        githubService = component.getGithubService();
+        picasso = component.getPiacasso() ;
     }
 
     /*public GithubApplicationComponent component() {
