@@ -16,16 +16,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GithubServiceModule {
 
     @Provides
+    @GithubApplicationScope
     public GithubService githubservice(Retrofit githubRetrofit){
         return githubRetrofit.create(GithubService.class);
     }
 
     @Provides
+    @GithubApplicationScope
     public Gson gson(){
         return new GsonBuilder().setLenient().create();
     }
 
     @Provides
+    @GithubApplicationScope
     public Retrofit retrofit(OkHttpClient okHttpClient, Gson gson){
         return new Retrofit.Builder()
                 .baseUrl("https://api.github.com/")
