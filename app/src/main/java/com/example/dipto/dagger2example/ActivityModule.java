@@ -1,21 +1,18 @@
 package com.example.dipto.dagger2example;
 
+import android.app.Activity;
 import android.content.Context;
 
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by Dipto on 3/30/2018.
- */
-
 @Module
-public class ContextModule {
+public class ActivityModule {
 
-    private final Context context ;
+    private final Activity context ;
 
-    public ContextModule(Context context) {
-        this.context = context.getApplicationContext();
+    public ActivityModule(Activity context) {
+        this.context = context;
     }
 
     @Provides
