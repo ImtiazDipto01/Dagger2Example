@@ -32,7 +32,11 @@ public class GithubApplication extends Application{
         githubService = component.getGithubService();
         picasso = component.getPiacasso() ;
 
-        GithubService githubService2 = component.getGithubService();
+
+
+        /***** for checking is scope working well ******/
+
+        /*GithubService githubService2 = component.getGithubService();
         Picasso picasso2 = component.getPiacasso() ;
 
         GithubService githubService3 = component.getGithubService();
@@ -43,7 +47,9 @@ public class GithubApplication extends Application{
         Log.i("DAGGER", "githubService3 : "+githubService3) ;
         Log.i("DAGGER", "picasso : "+picasso) ;
         Log.i("DAGGER", "picasso2 : "+picasso2) ;
-        Log.i("DAGGER", "picasso3 : "+picasso3) ;
+        Log.i("DAGGER", "picasso3 : "+picasso3) ;*/
+
+        /***** for checking is scope working well ******/
     }
 
     /*public GithubApplicationComponent component() {

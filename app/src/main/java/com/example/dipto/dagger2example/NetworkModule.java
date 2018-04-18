@@ -24,7 +24,7 @@ public class NetworkModule {
 
     @Provides
     @GithubApplicationScope
-    public File cacheFile(Context context){
+    public File cacheFile(@AplicationContextQualifiers Context context){
         return new File(context.getCacheDir(), "okhttp_cache");
     }
 
