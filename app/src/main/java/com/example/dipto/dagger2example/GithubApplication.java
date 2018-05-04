@@ -32,7 +32,7 @@ public class GithubApplication extends Application{
         githubService = component.getGithubService();
         picasso = component.getPiacasso() ;
 
-
+        //githubApplication component need to return
     }
 
     /*public GithubApplicationComponent component() {
