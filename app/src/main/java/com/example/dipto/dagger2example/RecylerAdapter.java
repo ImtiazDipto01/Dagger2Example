@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dipto.dagger2example.model.ServerResponseItem;
+import com.squareup.picasso.Picasso;
 
 import java.util.Collections;
 import java.util.List;
@@ -15,13 +16,18 @@ import java.util.List;
 public class RecylerAdapter extends RecyclerView.Adapter<RecylerAdapter.RecylerViewHolder> {
 
     private final LayoutInflater inflater;
+    private Picasso picasso;
     private List<ServerResponseItem> list = Collections.emptyList() ;
     private Context context ;
 
-    public RecylerAdapter(Context context, List<ServerResponseItem> list){
+    public RecylerAdapter(Context context, Picasso picasso){
         this.context = context ;
-        this.list = list ;
         inflater = LayoutInflater.from(context) ;
+        this.picasso = picasso ;
+    }
+
+    public void setArrayList(List<ServerResponseItem> list){
+        this.list = list ;
     }
 
     @Override
