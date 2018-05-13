@@ -25,7 +25,7 @@ public class GithubApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        GithubApplicationComponent component = DaggerGithubApplicationComponent.builder()
+        component = DaggerGithubApplicationComponent.builder()
                 .contextModule(new ContextModule(this))
                 .build();
 
@@ -35,9 +35,9 @@ public class GithubApplication extends Application{
         //githubApplication component need to return
     }
 
-    /*public GithubApplicationComponent component() {
+    public GithubApplicationComponent component() {
         return component;
-    }*/
+    }
 
     public GithubService getGithubService() {
         return githubService;

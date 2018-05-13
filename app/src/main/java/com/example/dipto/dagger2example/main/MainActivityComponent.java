@@ -1,7 +1,14 @@
 package com.example.dipto.dagger2example.main;
 
-import dagger.Component;
+import com.example.dipto.dagger2example.GithubApplicationComponent;
+import com.example.dipto.dagger2example.RecylerAdapter;
 
-@Component
+import dagger.Component;
+import dagger.Module;
+
+@MainActivityScope
+@Component(modules = MainActivityModule.class, dependencies = GithubApplicationComponent.class)
 public interface MainActivityComponent {
+
+    RecylerAdapter recylerAdapter() ;
 }
