@@ -2,6 +2,7 @@ package com.example.dipto.dagger2example.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.dipto.dagger2example.GithubApplication;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     Picasso picasso ;
     Call<ResponseRoot> call ;
     RecylerAdapter recylerAdapter ;
+    private LinearLayoutManager layoutManager;
+    MainActivityComponent component ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +38,18 @@ public class MainActivity extends AppCompatActivity {
         githubService = GithubApplication.get(this).getGithubService() ;
         picasso = GithubApplication.get(this).getPicasso() ;
 
-        MainActivityComponent component = DaggerMainActivityComponent.builder()
+        component = DaggerMainActivityComponent.builder()
                 .mainActivityModule(new MainActivityModule(this))
                 .githubApplicationComponent(GithubApplication.get(this).component())
                 .build() ;
 
+    }
+
+    private void setNotificationRecylerView() {
+        layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recylerAdapter = component.recylerAdapter() ;
+        recylerview.setLayoutManager(layoutManager);
+        //notificationAdapter.setClicklistner(this);
+        recylerview.setAdapter(recylerAdapter);
     }
 }
