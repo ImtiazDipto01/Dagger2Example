@@ -35,18 +35,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        githubService = GithubApplication.get(this).getGithubService() ;
-        picasso = GithubApplication.get(this).getPicasso() ;
-
         component = DaggerMainActivityComponent.builder()
                 .mainActivityModule(new MainActivityModule(this))
                 .githubApplicationComponent(GithubApplication.get(this).component())
                 .build() ;
 
+        githubService = component.getGithubService() ;
+
     }
 
     private void setNotificationRecylerView() {
+
+        //TODO inject layout manager
         layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+
         recylerAdapter = component.recylerAdapter() ;
         recylerview.setLayoutManager(layoutManager);
         //notificationAdapter.setClicklistner(this);

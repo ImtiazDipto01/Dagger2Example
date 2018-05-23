@@ -29,7 +29,7 @@ public class GithubApplication extends Application{
                 .contextModule(new ContextModule(this))
                 .build();
 
-        githubService = component.getGithubService();
+        githubService = component.getGithubService() ;
         picasso = component.getPiacasso() ;
 
         //githubApplication component need to return
@@ -37,13 +37,5 @@ public class GithubApplication extends Application{
 
     public GithubApplicationComponent component() {
         return component;
-    }
-
-    public GithubService getGithubService() {
-        return githubService;
-    }
-
-    public Picasso getPicasso() {
-        return picasso;
     }
 }
