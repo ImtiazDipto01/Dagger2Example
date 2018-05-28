@@ -17,7 +17,8 @@ public class MainActivityModule {
 
     @Provides
     @MainActivityScope
-    public RecylerAdapter recylerAdapter(Picasso picasso){
-        return new RecylerAdapter(mainActivity, picasso);
+    public MainActivity mainActivity(){
+        return mainActivity;
     }
+
 }
